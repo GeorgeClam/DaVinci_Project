@@ -77,15 +77,15 @@
   </head>
   <body>
 
-    <% if @error != nil %>
+    <% if flash.now[:error] != nil %>
       <div class="alert alert-danger">
-        <b><%= @error %></b>
+        <b><%= flash[:error] %></b>
       </div>
     <% end %>
 
-    <% if @success != nil %>
+    <% if flash[:success] != nil %>
       <div class="alert alert-success">
-        <b><%= @success %></b>
+        <b><%= flash[:success] %></b>
       </div>
     <% end %>
   

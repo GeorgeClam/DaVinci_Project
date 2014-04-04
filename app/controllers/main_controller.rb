@@ -8,9 +8,7 @@ class MainController < ApplicationController
     email      = params["email"]
     password   = params["password"]
     found_user = User.find_by(email: email)
-
     if params["commit"] == "Sign in"
-
       if found_user == nil
         flash[:error] = "Unknown e-mail address."
         redirect_to root_path
@@ -20,9 +18,8 @@ class MainController < ApplicationController
       else
         session[:user_id]   = found_user.id
         flash[:success] = "You've been successfully signed in!"
-        redirect_to artists_path
+        redirect_to root_path
       end
-
     else params["commit"] == "Sign out"
       session.clear
       redirect_to root_path
@@ -57,16 +54,24 @@ class MainController < ApplicationController
     @user.email                 = params["email"]
     @user.password              = params["password"]
     @user.password_confirmation = params["password_confirmation"]
-    @user.save!
+    @user.save
     if params["commit"] == "Sign up"
-      found_user        = User.find_by(email: email)
-      session[:user_id] = found_user.id
-      redirect_to root_path
+      if @user.save == true
+        found_user        = User.find_by(email: email)
+        session[:user_id] = found_user.id
+        redirect_to root_path
+      else
+        render :registration and return
+      end
     end
   end
 
   def artists_get
     render :artists and return
+  end
+
+  def artist_profile_get
+    render :artist_profile and return
   end
 
   def miscellaneous_get
