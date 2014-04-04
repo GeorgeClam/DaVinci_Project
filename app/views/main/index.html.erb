@@ -1,5 +1,7 @@
 <%= form_tag "/", method: :post do %>
+
   <% if session[:user_id] == nil %>
+
     <div class="login">
       <p>
         <%= text_field_tag :email, nil, placeholder: "E-Mail Address", size: 20 %>
@@ -7,13 +9,17 @@
         <%= submit_tag "Sign in" %>
       </p>
     </div>
+
   <% elsif session[:user_id] != nil %>
+
     <div class="login">
       <p>
         <%= submit_tag "Sign out" %>
       </p>
     </div>
+    
   <% end %>  
+
 <% end %>
 
 <div class="index_pics">
