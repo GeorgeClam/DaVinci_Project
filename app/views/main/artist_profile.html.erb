@@ -1,1 +1,13 @@
-this is the artist profile
+<%= form_tag "artists/:name" do %>
+
+<h1 class="header"><%= @artist_info.name %></h1>
+
+<p class="index_text">
+  <strong><%= @artist_info.name %>'s Facebook page:</strong><%= @artist_info.facebook_url %><br>
+</p>
+
+<p class="index_text">
+	<strong><%= @artist_info.name %>'s Twitter page:</strong> <%= @artist_info.twitter_url %><br>
+</p>
+
+<% end %>

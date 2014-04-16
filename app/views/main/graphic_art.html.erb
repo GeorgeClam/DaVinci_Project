@@ -1,14 +1,29 @@
 <h1 class="header">Graphic Arts</h1>
 
-<p class="index_text">
-  As humanity evolves, so does the mediums we use to express ourselves. Computers have altered the way we are able to express ideas and emotions, and in all reality, have expanded the possibilities of what is produced in a strange, profound way.
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <p class="index_text">
+      <em>“You can have an art experience in front of a Rembrandt… or in front of a piece of graphic design.”</em><br><strong>— Stefan Sagmeister</strong>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p class="index_text">
+      <em>“Graphic design will save the world right after rock and roll does.”</em><br><strong>— David Carson</strong>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p class="index_text">
+      <em>“Digital design is like painting, except the paint never dries.”</em><br><strong>— Neville Brody</strong>
+    </p>
+  </div>
+</div>
+
 
 <<br>
 
     <%= Work.where(genre: "graphic art").each do |work| %>
       <p style="text-align:center">
-             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black" height="700" width="500">
+             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
         <%= work.title %> by <%= link_to work.artist.name, artist_profile_path(work.artist.name) %><br>(c) 2014

@@ -71,6 +71,8 @@ class MainController < ApplicationController
   end
 
   def artist_profile_get
+    name = params[:name]
+    @artist_info = Artist.find_by(name: name)
     render :artist_profile and return
   end
 

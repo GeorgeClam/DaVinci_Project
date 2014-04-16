@@ -1,5 +1,5 @@
 .header {
-	margin: 5px 10px 5px 10px;
+	margin: 10px 10px 10px 10px;
 	text-align: center;
 	font-size: 35pt;
 	font-family: "impact", sans-serif;
@@ -20,11 +20,11 @@
 }
 
 .index_text {
-	margin: 5px 150px 5px 150px;
-	text-align: center;
+	margin: 0px 5px 0px 5px;
+	text-align: justify;
 	font-family: sans-serif;
 	color: black;
-	font-size: 14pt;
+	font-size: 12pt;
 }
 
 .index_pics {
