@@ -1,4 +1,4 @@
-<h1 class="header">Graphic Arts</h1>
+<h1 class="header">Graphic Art</h1>
 
 <hr>
 
@@ -54,7 +54,7 @@
   </p> 
 
   <p style="text-align:center">
-    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+    <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
   </p>
 
 <% end %>

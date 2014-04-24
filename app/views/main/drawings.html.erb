@@ -1,4 +1,4 @@
-<h1 class="header">Drawings</h1>
+<h1 class="header">Drawings & Sketches</h1>
 
 <hr>
 
@@ -51,13 +51,13 @@
 <%#= Work.where(genre: "drawing").each do |work| %>
 <%= @work.each do |work| %>
 
-  <p style="text-align:center">
-    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-  </p>
-
   <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
     "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
   </p> 
+  
+  <p style="text-align:center">
+    <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
+  </p>
 
 <% end %>
 

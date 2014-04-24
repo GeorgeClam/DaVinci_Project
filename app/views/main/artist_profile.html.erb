@@ -1,13 +1,46 @@
 <%= form_tag "artists/:name" do %>
 
-<h1 class="header"><%= @artist_info.name %></h1>
+  <h1 class="header"><%= @artist_info.name %></h1>
+  
+  <div class="header_three">
 
-<p class="index_text">
-  <strong><%= @artist_info.name %>'s Facebook page:</strong><%= @artist_info.facebook_url %><br>
-</p>
+    <% if @artist_info.website_url != nil %>
+	    -<%= link_to "Website", @artist_info.website_url %>
+	<% end %>
 
-<p class="index_text">
-	<strong><%= @artist_info.name %>'s Twitter page:</strong> <%= @artist_info.twitter_url %><br>
-</p>
+    <% if @artist_info.facebook_url != nil %>
+        -<%= link_to "Facebook", @artist_info.facebook_url %>
+    <% end %>
+  
+    <% if @artist_info.twitter_url != nil %>
+	    -<%= link_to "Twitter", @artist_info.twitter_url %>	
+    <% end %>
+  
+    <% if @artist_info.instagram_url != nil %>
+  	  	-<%= link_to "Instagram", @artist_info.instagram_url %>
+    <% end %>
+
+    <% if @artist_info.tumblr_url != nil %>
+	  	-<%= link_to "Tumblr", @artist_info.tumblr_url %>
+    <% end %>
+
+  </div> 
+
+
+  <%= @work.each do |work| %>
+
+    <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+      <em>"<%= work.title %>"</em> from <%= work.artist.name %>
+    </p> 
+
+    <p style="text-align:center">
+      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+    </p>
+  
+  <% end %>
 
 <% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @work %>
+</div>

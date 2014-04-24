@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   def root_get
-  	render :index and return
+    render :index and return
   end
 
   def root_post
@@ -24,15 +24,14 @@ class MainController < ApplicationController
       session.clear
       redirect_to root_path
     end
-    
   end
   
-  def drawings
+  def drawings_get
     @work = Work.order(:id).where(genre: "drawing").page(params[:page]).per_page(1)
   	render :drawings and return
   end
 
-  def paintings
+  def paintings_get
     @work = Work.order(:id).where(genre: "painting").page(params[:page]).per_page(1)
   	render :paintings and return
   end
@@ -41,7 +40,7 @@ class MainController < ApplicationController
   	render :showcase and return
   end
 
-  def graphic_art
+  def graphic_art_get
     @work = Work.order(:id).where(genre: "graphic_art").page(params[:page]).per_page(1)
   	render :graphic_art and return
   end
@@ -111,11 +110,13 @@ class MainController < ApplicationController
 
   def artist_profile_get
     name = params[:name]
+    artist_id = params[:artist_id]
     @artist_info = Artist.find_by(name: name)
+    @work = Work.order(:id).where(artist_id: @artist_info.id).page(params[:page]).per_page(1)
     render :artist_profile and return
   end
 
-  def miscellaneous
+  def miscellaneous_get
     @work = Work.order(:id).where(genre: "misc").page(params[:page]).per_page(1)
     render :miscellaneous and return
   end
