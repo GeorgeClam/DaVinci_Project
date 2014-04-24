@@ -1,32 +1,66 @@
 <h1 class="header">Drawings</h1>
 
+<hr>
+
 <div class="row">
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"Drawing is the honesty of the art. There is no possibility of cheating. It is either good or bad"</em><br><strong>-Salvador Dali</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+         <em>"Drawing is the honesty of the art. There is no possibility of cheating. It is either good or bad"</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <br><strong>-Salvador Dali</strong>
+      </p>
+
+    </blockquote>
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"I start drawing, and eventually the characters involve themselves in a situation. Then in the end, I go back and try to cut out most of the preachments."</em><br><strong>-Dr. Suess</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>"I start drawing, and eventually the characters involve themselves in a situation. Then in the end, I go back and try to cut out most of the preachments."</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>-Dr. Suess</strong>
+      </p>
+
+    </blockquote>
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"Photography is an immediate reaction, drawing is a meditation."</em><br><strong>-Henri Cartier-Bresson</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>"Photography is an immediate reaction, drawing is a meditation."</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <br><strong>-Henri Cartier-Bresson</strong>
+      <p>
+
+    </blockquote>
   </div>
 </div>
 
 <br>
 
-    <%= Work.where(genre: "drawing").each do |work| %>
-      <p style="text-align:center">
-             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-      </p>
-      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        <%= work.title %> by <%= link_to work.artist.name, artist_profile_path(work.artist.name) %><br>(c) 2014
-      </p> 
+<%#= Work.where(genre: "drawing").each do |work| %>
+<%= @work.each do |work| %>
 
-    <% end %>
+  <p style="text-align:center">
+    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+  </p>
 
+  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+    "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
+  </p> 
+
+<% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @work %>
+</div>

@@ -1,33 +1,64 @@
 <h1 class="header">Graphic Arts</h1>
 
+<hr>
+
 <div class="row">
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“You can have an art experience in front of a Rembrandt… or in front of a piece of graphic design.”</em><br><strong>— Stefan Sagmeister</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>“You can have an art experience in front of a Rembrandt… or in front of a piece of graphic design.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>— Stefan Sagmeister</strong>
+      </p>
+
+    </blockquote>
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“Graphic design will save the world right after rock and roll does.”</em><br><strong>— David Carson</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>“Graphic design will save the world right after rock and roll does.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>— David Carson</strong>
+      </p>
+
+    </blockquote>  
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“Digital design is like painting, except the paint never dries.”</em><br><strong>— Neville Brody</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>“Digital design is like painting, except the paint never dries.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>— Neville Brody</strong>
+      </p>
+
+    </blockquote>
   </div>
 </div>
 
+<%#= Work.where(genre: "graphic art").each do |work| %>
+<%= @work.each do |work| %>
 
-<<br>
+  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+    "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
+  </p> 
 
-    <%= Work.where(genre: "graphic art").each do |work| %>
-      <p style="text-align:center">
-             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-      </p>
-      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        <%= work.title %> by <%= link_to work.artist.name, artist_profile_path(work.artist.name) %><br>(c) 2014
-      </p> 
-      <br>
-      <br>
-    <% end %>
+  <p style="text-align:center">
+    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+  </p>
+
+<% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @work %>
+</div>

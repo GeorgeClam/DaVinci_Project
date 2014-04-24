@@ -168,21 +168,21 @@ Work.create! \
   title: "Behind the Scenes",
   artist_id: 4,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "joshua_guisinger_works/behind_the_scenes.jpg" 
 
 Work.create! \
   title: "League of Shadows",
   artist_id: 4,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "joshua_guisinger_works/league_of_shadows.jpg" 
 
 Work.create! \
   title: "Faceless",
   artist_id: 4,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "joshua_guisinger_works/faceless.jpg" 
 
 Work.create! \
@@ -224,7 +224,7 @@ Work.create! \
   title: "Alien",
   artist_id: 5,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "ken_kokoszka_works/alien.jpg"  
 
 Work.create! \
@@ -238,14 +238,14 @@ Work.create! \
   title: "Choice Encounter",
   artist_id: 5,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "ken_kokoszka_works/choice_encounter.jpg"  
 
 Work.create! \
   title: "Goblin",
   artist_id: 5,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "ken_kokoszka_works/goblin.jpg"  
 
 Work.create! \
@@ -266,7 +266,7 @@ Work.create! \
   title: "Redcap",
   artist_id: 5,
   availability: false,
-  genre: "graphic art",
+  genre: "graphic_art",
   work_filename: "ken_kokoszka_works/redcap.jpg"  
 
 Work.create! \

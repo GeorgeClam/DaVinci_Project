@@ -36,6 +36,10 @@ gem 'dynamic_form' # for error_messages_for
 
 gem 'rake_db_dump'
 
+gem 'pony'
+
+gem 'will_paginate'
+
 gem 'rails-footnotes', github: 'rrooding/rails-footnotes',
   ref: '0b6bc7'
 

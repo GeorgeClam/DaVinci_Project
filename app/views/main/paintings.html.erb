@@ -1,31 +1,66 @@
 <h1 class="header">Paintings</h1>
 
+<hr>
+
 <div class="row">
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"It took me four years to paint like Raphael, but a lifetime to paint like a child."</em><br><strong>-Pablo Picasso</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>"It took me four years to paint like Raphael, but a lifetime to paint like a child."</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <br><br><br><strong>-Pablo Picasso</strong>
+      </p>
+
+    </blockquote>
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"Writing is a form of therapy; sometimes I wonder how all those who do not write, compose or paint can manage to escape the madness, melancholia, the panic and fear which is inherent in a human situation."</em><br><strong>-Graham Greene</strong>
+    <blockquote>
+
+      <p class="index_text">
+        <em>"Writing is a form of therapy; sometimes I wonder how all those who do not write, compose or paint can manage to escape the madness, melancholia, the panic and fear which is inherent in a human situation."</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>-Graham Greene</strong>
+      </p>
+
+    </blockquote>
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>"One can't paint New York as it is, but rather as it is felt."</em><br><strong>-Georgia O'Keeffe</strong>
-    </p>
+    <blockquote>  
+
+      <p class="index_text">
+        <em>"One can't paint New York as it is, but rather as it is felt."</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <br><br><br><strong>-Georgia O'Keeffe</strong>
+      </p>
+
+    </blockquote>
   </div>
 </div>
 
 <br>
 
-    <%= Work.where(genre: "painting").each do |work| %>
-      <p style="text-align:center">
-             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-      </p>
-      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        <%= work.title %> by <%= link_to work.artist.name, artist_profile_path(work.artist.name) %><br>(c) 2014
-      </p> 
-      <br>
-      <br>
-    <% end %>
+<%#= Work.where(genre: "painting").each do |work| %>
+<%= @work.each do |work| %>
+
+  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+    "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
+  </p> 
+
+  <p style="text-align:center">
+    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+  </p>
+
+<% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @work %>
+</div>

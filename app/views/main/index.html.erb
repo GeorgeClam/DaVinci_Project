@@ -14,7 +14,7 @@
 
     <div class="login">
       <p>
-        <%= submit_tag "Sign out" %>
+        <strong>Welcome back, <%= User.find(session[:user_id]).first_name %>! </strong> <%= submit_tag "Sign out" %>
       </p>
     </div>
     
@@ -28,12 +28,10 @@
       <p>
         <img src="/assets/<%= Work.find(14).work_filename %>" style="border:2px ridge black" height="600" width="400">
       </p>
-      <p>
-        "<%= Work.find(14).title %>""
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(14).title %>"
           <br>
-        by <%= Work.find(14).artist.name %>
-          <br>
-        (c) 2014
+        from <%= Work.find(14).artist.name %>
       </p> 
     </div>
 
@@ -41,12 +39,10 @@
        <p>
         <img src="/assets/<%= Work.find(8).work_filename %>" style="border:2px ridge black" height="600" width="425">
       </p>
-      <p>
-        "<%= Work.find(8).title %>""
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(8).title %>"
           <br>
-        by <%= Work.find(8).artist.name %>
-          <br>
-        (c) 2014
+        from <%= Work.find(8).artist.name %>
       </p> 
     </div>
 
@@ -54,14 +50,46 @@
      <p>
         <img src="/assets/<%= Work.find(21).work_filename %>" style="border:2px ridge black" height="600" width="400">
       </p>
-      <p>
-        "<%= Work.find(21).title %>""
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(21).title %>"
           <br>
-        by <%= Work.find(21).artist.name %>
-          <br>
-        (c) 2014
+        from <%= Work.find(21).artist.name %>
       </p> 
     </div>
+
+    <div class="col-md-4">
+       <p>
+        <img src="/assets/<%= Work.find(2).work_filename %>" style="border:2px ridge black" height="600" width="425">
+      </p>
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(2).title %>"
+          <br>
+        from <%= Work.find(2).artist.name %></a>
+      </p> 
+    </div>
+
+    <div class="col-md-4">
+      <p>
+        <img src="/assets/<%= Work.find(30).work_filename %>" style="border:2px ridge black" height="600" width="425">
+      </p>
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(30).title %>"
+          <br>
+        from <%= Work.find(30).artist.name %>
+      </p> 
+    </div>
+
+        <div class="col-md-4">
+      <p>
+        <img src="/assets/<%= Work.find(33).work_filename %>" style="border:2px ridge black" height="600" width="425">
+      </p>
+      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+        "<%= Work.find(33).title %>"
+          <br>
+        from <%= Work.find(33).artist.name %>
+      </p> 
+    </div>
+
   </div>
 </div>
 

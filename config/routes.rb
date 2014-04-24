@@ -21,12 +21,15 @@ DavinciProject::Application.routes.draw do
   get  "/registration"          => "main#registration_get",     as: "registration"
   post "/registration"          => "main#registration_post",    as: "registration_post"
 
+  get  "/verify_email/:user_id/:token" => "main#verify_email",  as: "verify_email"
+  post "/resend_verification_email"    => "main#resend_verification_email", as: "resend_verification_email"
+
   get  "/artists"               => "main#artists_get",          as: "artists"
 
   get  "/artists/:name"         => "main#artist_profile_get",   as: "artist_profile"
   post "/artists/:name"         => "main#artist_profile_post",  as: "artist_profile_post"
 
-  get  "/miscellaneous"         => "main#miscellaneous_get",    as: "miscellaneous"
+  get  "/miscellaneous"         => "main#miscellaneous",    as: "miscellaneous"
 
   get  "/miscellaneous/:title"  => "main#miscellaneous_get"
   post "/miscellaneous/:title"  => "main#miscellaneous_post",   as: "miscellaneous_post"

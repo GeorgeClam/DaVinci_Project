@@ -28,10 +28,12 @@ class MainController < ApplicationController
   end
   
   def drawings
+    @work = Work.order(:id).where(genre: "drawing").page(params[:page]).per_page(1)
   	render :drawings and return
   end
 
   def paintings
+    @work = Work.order(:id).where(genre: "painting").page(params[:page]).per_page(1)
   	render :paintings and return
   end
 
@@ -39,7 +41,8 @@ class MainController < ApplicationController
   	render :showcase and return
   end
 
-  def graphic_art_get
+  def graphic_art
+    @work = Work.order(:id).where(genre: "graphic_art").page(params[:page]).per_page(1)
   	render :graphic_art and return
   end
 
@@ -48,22 +51,58 @@ class MainController < ApplicationController
   end
 
   def registration_post
-    @user                       = User.new
-    @user.first_name            = params["first_name"]
-    @user.last_name             = params["last_name"]
-    @user.email                 = params["email"]
-    @user.password              = params["password"]
-    @user.password_confirmation = params["password_confirmation"]
+    @user                          = User.new
+    @user.first_name               = params["first_name"]
+    @user.last_name                = params["last_name"]
+    @user.email                    = params["email"]
+    @user.password                 = params["password"]
+    @user.password_confirmation    = params["password_confirmation"]
+    @user.email_verification_token = rand(10 ** 8)
     @user.save
     if params["commit"] == "Sign up"
       if @user.save == true
-        found_user        = User.find_by(email: email)
-        session[:user_id] = found_user.id
+        flash[:success] = "Please check your email to complete the registration process."
+        session[:user_id] = @user.id
+
+        link = verify_email_url(@user.id, @user.email_verification_token)
+        Pony.mail(
+          to:        @user.email,
+          subject:   "Thanks for registering",
+          body:      "Please confirm your account by clicking the link: #{link}",
+        )
+
         redirect_to root_path
       else
         render :registration and return
       end
     end
+  end
+
+  def verify_email
+    user = User.where(id: params[:user_id]).first
+    if user != nil
+      if user.email_verification_token == params[:token]
+        user.was_email_verified = true
+        user.save
+        flash[:success] = "Email has been verified."
+        session[:logged_in_user_id] = user.id
+      else
+        flash[:error] = "Wrong email verification token"
+      end
+      redirect_to root_path and return
+    else
+      flash[:error] = "Couldn't find user with that ID"
+    end
+  end
+  
+  def resend_verification_email
+    Pony.mail(
+      to:        @user.email,
+      subject:   "Thanks for registering",
+      body:      "Please confirm your account by clicking the link: #{link}",
+        )
+    flash[:success] = "Verification email sent."
+    redirect_to params[:afterwards_go_to]
   end
 
   def artists_get
@@ -76,7 +115,8 @@ class MainController < ApplicationController
     render :artist_profile and return
   end
 
-  def miscellaneous_get
+  def miscellaneous
+    @work = Work.order(:id).where(genre: "misc").page(params[:page]).per_page(1)
     render :miscellaneous and return
   end
 

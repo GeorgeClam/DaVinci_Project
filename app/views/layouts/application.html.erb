@@ -48,12 +48,12 @@
             </li>
             <li>
               <a href="/miscellaneous">
-                Something different
+                Something different...
               </a>
             </li>
             <li>
               <a href="/registration">
-              	Sign up
+              	Help promote culture!
               </a>
             </li>
             <li>
@@ -71,18 +71,25 @@
   <body>
 
   <% if flash.now[:error] != nil %>
+
     <div class="alert alert-danger">
       <b><%= flash[:error] %></b>
     </div>
+
   <% end %>
 
   <% if flash[:success] != nil %>
+
     <div class="alert alert-success">
       <b><%= flash[:success] %></b>
     </div>
+
   <% end %>
   
     <%= yield %>
 
+  <hr>
+  <p class="footer">
+    All work is copywritten and the rights to the works belong solely to the artist which have created the respected piece. Don't be a jerk and take advantage of the people that put in serious efforts to make the world a more beautiful place. This website was created by Limbo Web Design. 
   </body>
 </html>

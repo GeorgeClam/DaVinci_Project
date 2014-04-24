@@ -1,31 +1,64 @@
 <h1 class="header">Here's some other types of art.</h1>
 
+<hr>
+
 <div class="row">
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“I want to make beautiful things, even if nobody cares, as opposed to ugly things. That’s my intent.”</em><br><strong>-Saul Bass</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>“I want to make beautiful things, even if nobody cares, as opposed to ugly things. That’s my intent.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <br><strong>-Saul Bass</strong>
+      </p>
+
+    </blockquote>  
   </div>
+
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“But I find that for myself, without exception, the more I deal with the work as something that is my own, as something that is personal, the more successful it is.”</em><br><strong>-Marian Bantjes</strong>
-    </p>
+    <blockquote>
+      <p class="index_text">
+        <em>“But I find that for myself, without exception, the more I deal with the work as something that is my own, as something that is personal, the more successful it is.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>-Marian Bantjes</strong>
+      </p>
+
+    </blockquote>
   </div>
+  
   <div class="col-md-4">
-    <p class="index_text">
-      <em>“Never fall in love with an idea. They’re whores. If the one you’re with isn’t doing the job, there’s always, always, always another.”</em><br><strong>-Chip Kidd</strong>
-    </p>
+    <blockquote>
+
+      <p class="index_text">
+        <em>“Never fall in love with an idea. They’re whores. If the one you’re with isn’t doing the job, there’s always, always, always another.”</em>
+      </p>
+        <br>
+      <p class="index_text2">
+        <strong>-Chip Kidd</strong>
+      </p>
+
+    </blockquote>
   </div>
 </div>
-<br>
 
-    <%= Work.where(genre: "misc").each do |work| %>
-      <p style="text-align:center">
-             <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-      </p>
-      <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        <%= work.title %> by <%= link_to work.artist.name, artist_profile_path(work.artist.name) %><br>(c) 2014
-      </p> 
-      <br>
-      <br>
-    <% end %>
+<%#= Work.where(genre: "misc").each do |work| %>
+<%= @work.each do |work| %>
+
+  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+    "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
+  </p> 
+
+  <p style="text-align:center">
+    <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+  </p>
+
+<% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @work %>
+</div>
+
