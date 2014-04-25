@@ -1,64 +1,63 @@
 <h1 class="header">Graphic Art</h1>
-
 <hr>
 
 <div class="row">
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>“You can have an art experience in front of a Rembrandt… or in front of a piece of graphic design.”</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <strong>— Stefan Sagmeister</strong>
       </p>
-
     </blockquote>
   </div>
 
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>“Graphic design will save the world right after rock and roll does.”</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <strong>— David Carson</strong>
       </p>
-
     </blockquote>  
   </div>
 
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>“Digital design is like painting, except the paint never dries.”</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <strong>— Neville Brody</strong>
       </p>
-
     </blockquote>
   </div>
 </div>
 
-<%#= Work.where(genre: "graphic art").each do |work| %>
-<%= @work.each do |work| %>
+<% @work.each do |work| %>
 
-  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+  <p class="work">
     "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
   </p> 
-
   <p style="text-align:center">
-    <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
+    <a href="<%= work_showcase_path(@work) %>">
+      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+    </a>
   </p>
-
+  <p>
+    <% if work.availability == true %>
+      <%= submit_tag "Add to your shopping cart" %>
+    <% end %>
+  </p>
+ 
 <% end %>
 
 <div class="apple_pagination">
   <%= will_paginate @work %>
 </div>
+<br>

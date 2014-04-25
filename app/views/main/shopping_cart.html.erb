@@ -1,1 +1,76 @@
-This is your shopping cart
+<h1 class="header">Subcultures Shopping Cart</h1>
+
+<p class="header_three">
+	Please review the items in your shopping cart.
+</p>
+
+<br><br>
+
+<ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  <li>
+  	<strong>Item 1: (title/artist)</strong>
+  	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  	  	<li>
+  	  	  <%= radio_button_tag "Frame for Item #1?", "Include pricing for frame. ($50)", nil %>
+  		  <%= label_tag "frame_true", "Include pricing for frame. ($50)" %><br>
+  		  <%= radio_button_tag "Frame for Item #1", "Do not include a frame.", nil %>
+    	  <%= label_tag "frame_false", "Do not include a frame." %><br>
+    	</li>
+    	<li>
+    	  <p class="index_text3">
+            <%= select_tag "ship speed", options_for_select(["Basic shipping ($XX.XX)", "Expidited shipping ($XX.XX)"], nil), prompt: "Shipping Speed" %>
+		  </p>  
+		</li>
+    	<li>
+    	  <%= submit_tag "Remove item" %>
+    	</li>
+      </ul>
+  </li>
+  <br>
+  <li>
+  	<strong>Item 2: (title/artist)</strong>
+  	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  	  	<li>
+  	  	  <%= radio_button_tag "Frame for Item #1?", "Include pricing for frame. ($50)", nil %>
+  		  <%= label_tag "frame_true", "Include pricing for frame. ($50)" %><br>
+  		  <%= radio_button_tag "Frame for Item #1", "Do not include a frame.", nil %>
+    	  <%= label_tag "frame_false", "Do not include a frame." %><br>
+    	</li>
+    	<li>
+    	  <p class="index_text3">
+            <%= select_tag "ship speed", options_for_select(["Basic shipping ($XX.XX)", "Expidited shipping ($XX.XX)"], nil), prompt: "Shipping Speed" %>
+		  </p>  
+		</li>
+    	<li>
+    	  <%= submit_tag "Remove item" %>
+    	</li>
+      </ul>
+  </li>
+  <br>
+  <li>
+  	<strong>Item 3: (title/artist)</strong>
+  	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  	  	<li>
+  	  	  <%= radio_button_tag "Frame for Item #1?", "Include pricing for frame. ($50)", nil %>
+  		  <%= label_tag "frame_true", "Include pricing for frame. ($50)" %><br>
+  		  <%= radio_button_tag "Frame for Item #1", "Do not include a frame.", nil %>
+    	  <%= label_tag "frame_false", "Do not include a frame." %><br>
+    	</li>
+    	<li>
+    	  <p class="index_text3">
+            <%= select_tag "ship speed", options_for_select(["Basic shipping ($XX.XX)", "Expidited shipping ($XX.XX)"], nil), prompt: "Shipping Speed" %>
+		  </p>  
+		</li>
+    	<li>
+    	  <%= submit_tag "Remove item" %>
+    	</li>
+    	<br>
+      </ul>
+  </li>
+</ul>
+
+<br>
+
+<p class="index_text3">
+  <%= submit_tag "Continue with purchase" %>
+</p>

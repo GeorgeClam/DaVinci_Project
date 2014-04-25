@@ -37,6 +37,8 @@ class MainController < ApplicationController
   end
 
   def showcase_get
+    id = params[:id]
+    @work = Work.find(params[:id])
   	render :showcase and return
   end
 

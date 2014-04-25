@@ -1,5 +1,5 @@
 body {
-  background-color: #FFFAF0;
+  background-color: #F8F8FF;
 }
 
 .header {
@@ -37,6 +37,14 @@ body {
 	font-family: sans-serif;
 	color: black;
 	font-size: 13pt;
+}
+
+.work {
+  text-align:center; 
+  color: black; 
+  font-family: Impact; 
+  font-size: 20px; 
+  margin: 10px 10px 10px 10px
 }
 
 .registration {
@@ -78,7 +86,7 @@ body {
 }
 
 .digg_pagination {
-  background: white;
+  background: #F8F8FF;
   cursor: default;
   /* self-clearing method: */ }
   .digg_pagination a, .digg_pagination span, .digg_pagination em {
@@ -104,7 +112,7 @@ body {
       border-color: #000033; }
   .digg_pagination .page_info {
     background: #2e6ab1;
-    color: white;
+    color: #F8F8FF;
     padding: 0.4em 0.6em;
     width: 22em;
     margin-bottom: 0.3em;
@@ -125,7 +133,7 @@ body {
     overflow: hidden; }
 
 .apple_pagination {
-  background: #A9A9A9;
+  background: #F8F8FF;
   border: 0px solid black;
   text-align: center;
   padding: 1em;

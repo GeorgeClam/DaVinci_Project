@@ -5,29 +5,39 @@
   <div class="header_three">
 
     <% if @artist_info.website_url != nil %>
-	    -<%= link_to "Website", @artist_info.website_url %>
-	<% end %>
+	    <a href="http://www.<%= @artist_info.website_url %>">
+        Website
+      </a><br>
+	  <% end %>
 
     <% if @artist_info.facebook_url != nil %>
-        -<%= link_to "Facebook", @artist_info.facebook_url %>
+      <a href="http://www.<%= @artist_info.facebook_url %>">
+        Facebook
+      </a><br>
     <% end %>
   
     <% if @artist_info.twitter_url != nil %>
-	    -<%= link_to "Twitter", @artist_info.twitter_url %>	
+	    <a href="http://www.<%= @artist_info.twitter_url %>">
+        Twitter
+      </a><br>	
     <% end %>
   
     <% if @artist_info.instagram_url != nil %>
-  	  	-<%= link_to "Instagram", @artist_info.instagram_url %>
+      <a href="http://www.<%= @artist_info.website_url %>">
+        Instagram
+      </a><br>
     <% end %>
 
     <% if @artist_info.tumblr_url != nil %>
-	  	-<%= link_to "Tumblr", @artist_info.tumblr_url %>
+      <a href="http://www.<%= @artist_info.website_url %>">
+        Tumblr
+      </a><br>
     <% end %>
 
   </div> 
 
 
-  <%= @work.each do |work| %>
+  <% @work.each do |work| %>
 
     <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
       <em>"<%= work.title %>"</em> from <%= work.artist.name %>

@@ -48,15 +48,19 @@
 
 <br>
 
-<%#= Work.where(genre: "drawing").each do |work| %>
-<%= @work.each do |work| %>
+<% @work.each do |work| %>
 
-  <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
+  <p class="work">
     "<%= work.title %>" from <%= link_to work.artist.name, artist_profile_path(work.artist.name) %>
   </p> 
   
   <p style="text-align:center">
     <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
+  </p>
+  <p style="text-align:center">
+    <% if work.availability == true %>
+      <%= submit_tag "Add to your shopping cart" %>
+    <% end %>
   </p>
 
 <% end %>

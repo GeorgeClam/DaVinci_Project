@@ -1,1 +1,87 @@
-Please review your order
+<h1 class="header">Your Order</h1>
+
+<br>
+
+<ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  <li>
+  	Item 1: (title/artist: $XXX.XX)
+  </li>
+  <br>
+  <li>
+  	Item 2: (title/artist: $XXX.XX)
+  </li>
+  <br>
+  <li>
+  	Item 3: (title/artist: $XXX.XX)
+  	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
+  	  	<li>
+  	  	  + Framing cost ($XX.XX)
+    	</li>
+      </ul>
+  </li>
+</ul>
+
+<br>
+
+<p class="index_text3">
+  <strong>Total cost: $XXX.XX</strong>
+</p>
+
+<br><hr>
+
+<p class="index_text3">
+  Please review your order. If you find your order to be incorrect, please click <a href="/shopping_cart">here</a> to edit the items inside your cart.
+<br><br>
+   If the order is correct, please provide credit card and shipping information below.
+</p>
+
+<br><hr>
+
+<h3 class="header_three">Shipping Information</h3><br>
+
+<div style="text-align: center">
+  <%= text_field_tag "Name", nil, placeholder: "Name", size: 40 %>
+
+  <br><br>
+
+  <%= text_field_tag "Street Address", nil, placeholder: "Street Address", size: 40 %>
+
+  <br><br>
+
+  <%= text_field_tag "City", nil, placeholder: "City", size: 40 %>
+
+  <br><br>
+
+  <%= text_field_tag "Zip code", nil, placeholder: "Zip code", size: 23 %>  
+
+  <%= select_tag "state", options_for_select(["CO", "NM", "WY", "GA", "KS", "AZ", "UT", "CA", "WA"], nil), prompt: "Select state" %>
+
+</div>
+
+<br><hr>
+
+<h3 class="header_three">Payment Information</h3><br>
+
+<div style="text-align: center">
+  <%= select_tag "card type", options_for_select(["Visa", "MasterCard", "American Express", "Paypal"], nil), prompt: "Select card type" %>
+
+  <br><br>
+
+  <%= text_field_tag "Name on card", nil, placeholder: "Name on card", size: 40 %>
+
+  <br><br>
+  
+  <%= text_field_tag "Card number", nil, placeholder: "Credit Card Number", size: 40 %>
+  
+  <br><br>
+
+    <%= text_field_tag "Card Expiration", nil, placeholder: "Card Expiration (MMYY)", size: 40 %>
+  <br><br>
+
+    <%= text_field_tag "Security Key", nil, placeholder: "3-digit Security Key", size: 40 %>
+
+    <br><br>
+
+    <%= submit_tag "Confirm Order" %>
+
+</div>

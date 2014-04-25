@@ -1,95 +1,105 @@
 <%= form_tag "/", method: :post do %>
 
-  <% if session[:user_id] == nil %>
+<% if session[:user_id] == nil %>
 
-    <div class="login">
-      <p>
-        <%= text_field_tag :email, nil, placeholder: "E-Mail Address", size: 20 %>
-        <%= password_field_tag :password, nil, placeholder: "Password", size: 20 %>
-        <%= submit_tag "Sign in" %>
-      </p>
-    </div>
+  <div class="login">
+    <p>
+      <%= text_field_tag :email, nil, placeholder: "E-Mail Address", size: 20 %>
+      <%= password_field_tag :password, nil, placeholder: "Password", size: 20 %>
+      <%= submit_tag "Sign in" %>
+    </p>
+  </div>
 
-  <% elsif session[:user_id] != nil %>
+<% elsif session[:user_id] != nil %>
 
-    <div class="login">
-      <p>
-        <strong>Welcome back, <%= User.find(session[:user_id]).first_name %>!   </strong> <%= submit_tag "Sign out" %>
-      </p>
-    </div>
+  <div class="login">
+    <p>
+      Greetings, <%= User.find(session[:user_id]).first_name %>! <%= submit_tag "Sign out" %>
+    </p>
+  </div>
 
-  <% end %>  
+<% end %> 
 
-<% end %>
+<% end %> 
 
 <div class="index_pics">
   <div class="row">
-
     <div class="col-md-4">
       <p>
-        <img src="/assets/<%= Work.find(14).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        <a href="/artists/<%= Work.find(11).artist.name %>">
+          <img src="/assets/<%= Work.find(11).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(14).title %>"
+        "<%= Work.find(11).title %>"
           <br>
-        from <%= link_to Work.find(14).artist.name, artist_profile_path(Work.find(14).artist.name) %>
+        from <%= link_to Work.find(11).artist.name, artist_profile_path(Work.find(11).artist.name) %>
       </p> 
     </div>
 
     <div class="col-md-4">
        <p>
-        <img src="/assets/<%= Work.find(8).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        <a href="/artists/<%= Work.find(5).artist.name %>">
+          <img src="/assets/<%= Work.find(5).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(8).title %>"
+        "<%= Work.find(5).title %>"
           <br>
-        from <%= link_to Work.find(8).artist.name, artist_profile_path(Work.find(8).artist.name) %>
+        from <%= link_to Work.find(5).artist.name, artist_profile_path(Work.find(5).artist.name) %>
       </p> 
     </div>
 
     <div class="col-md-4">
      <p>
-        <img src="/assets/<%= Work.find(21).work_filename %>" style="border:2px ridge black" height="580" width="400">
+        <a href="/artists/<%= Work.find(18).artist.name %>">
+          <img src="/assets/<%= Work.find(18).work_filename %>" style="border:2px ridge black" height="580" width="400">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(21).title %>"
+        "<%= Work.find(18).title %>"
           <br>
-        from <%= link_to Work.find(21).artist.name, artist_profile_path(Work.find(21).artist.name) %>
+        from <%= link_to Work.find(18).artist.name, artist_profile_path(Work.find(18).artist.name) %>
       </p> 
     </div>
 
     <div class="col-md-4">
        <p>
-        <img src="/assets/<%= Work.find(2).work_filename %>" style="border:2px ridge black" height="580" width="425">
+         <a href="/artists/<%= Work.find(1).artist.name %>">
+           <img src="/assets/<%= Work.find(1).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(2).title %>"
+        "<%= Work.find(1).title %>"
           <br>
-        from <%= link_to Work.find(2).artist.name, artist_profile_path(Work.find(2).artist.name) %></a>
+        from <%= link_to Work.find(1).artist.name, artist_profile_path(Work.find(1).artist.name) %></a>
       </p> 
     </div>
 
     <div class="col-md-4">
       <p>
-        <img src="/assets/<%= Work.find(30).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        <a href="/artists/<%= Work.find(24).artist.name %>">
+          <img src="/assets/<%= Work.find(24).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(30).title %>"
+        "<%= Work.find(24).title %>"
           <br>
-        from <%= link_to Work.find(30).artist.name, artist_profile_path(Work.find(30).artist.name) %>
+        from <%= link_to Work.find(24).artist.name, artist_profile_path(Work.find(24).artist.name) %>
       </p> 
     </div>
 
     <div class="col-md-4">
       <p>
-        <img src="/assets/<%= Work.find(33).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        <a href="/artists/<%= Work.find(31).artist.name %>">
+          <img src="/assets/<%= Work.find(31).work_filename %>" style="border:2px ridge black" height="580" width="425">
+        </a>
       </p>
       <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-        "<%= Work.find(33).title %>"
+        "<%= Work.find(31).title %>"
           <br>
-        from <%= link_to Work.find(33).artist.name, artist_profile_path(Work.find(33).artist.name) %>
+        from <%= link_to Work.find(31).artist.name, artist_profile_path(Work.find(31).artist.name) %>
       </p> 
     </div>
-
   </div>
 </div>

@@ -53,13 +53,6 @@ Artist.create! \
   tumblr_url: nil
 
 Work.create! \
-  title: "Zombie",
-  artist_id: 1,
-  availability: false,
-  genre: "drawing",
-  work_filename: "zack_low_works/zombie.jpg"
-
-Work.create! \
   title: "I speak tree",
   artist_id: 1,
   availability: false,
@@ -67,16 +60,9 @@ Work.create! \
   work_filename: "zack_low_works/i_speak_tree.jpg"
 
 Work.create! \
-  title: "I hate reflections",
-  artist_id: 1,
-  availability: false,
-  genre: "drawing",
-  work_filename: "zack_low_works/i_hate_reflections.jpg"
-
-Work.create! \
   title: "Handy with tools",
   artist_id: 1,
-  availability: false,
+  availability: true,
   genre: "drawing",
   work_filename: "zack_low_works/handy_with_tools.jpg"
 
@@ -93,13 +79,6 @@ Work.create! \
   availability: false,
   genre: "drawing",
   work_filename: "thomas_bloomberg_works/analysis.jpg"
-
-Work.create! \
-  title: "Bang Your Head",
-  artist_id: 2,
-  availability: true,
-  genre: "drawing",
-  work_filename: "thomas_bloomberg_works/bang_your_head.jpg"
 
 Work.create! \
   title: "National Geographic",
