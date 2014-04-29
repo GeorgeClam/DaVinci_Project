@@ -1,3 +1,5 @@
+<%= form_tag "/shopping_cart", method: :post do %>
+
 <h1 class="header">Subcultures Shopping Cart</h1>
 
 <p class="header_three">
@@ -26,7 +28,7 @@
     	</li>
       </ul>
   </li>
-  <br>
+  <br><br>
   <li>
   	<strong>Item 2: (title/artist)</strong>
   	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
@@ -46,7 +48,7 @@
     	</li>
       </ul>
   </li>
-  <br>
+  <br><br>
   <li>
   	<strong>Item 3: (title/artist)</strong>
   	  <ul style="text-align: center; list-style-type: none; padding: 0; margin: 0;">
@@ -69,8 +71,10 @@
   </li>
 </ul>
 
-<br>
+<br><br>
 
 <p class="index_text3">
-  <%= submit_tag "Continue with purchase" %>
+  <%= submit_tag "Back to Index" %> <%= submit_tag "Continue with purchase" %>
 </p>
+
+<% end %>

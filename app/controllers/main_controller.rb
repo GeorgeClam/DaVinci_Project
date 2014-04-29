@@ -124,15 +124,40 @@ class MainController < ApplicationController
   end
 
   def shopping_cart_get
-    render :shopping_cart and return
+    if session[:user_id] != nil
+      render :shopping_cart and return
+    else
+      flash[:error] = "You must register before purchasing items."
+      redirect_to registration_path
+    end
+  end
+
+  def shopping_cart_post
+    if params["commit"] == "Continue with purchase"
+      redirect_to order_details_path
+    elsif params["commit"] == "Back to Index"
+      redirect_to root_path
+    end
   end
 
   def order_details_get
     render :order_details and return
   end
 
+  def order_details_post
+    if params[:commit] == "Confirm Order"
+      redirect_to confirmation_path
+    end
+  end
+
   def confirmation_get
     render :confirmation and return
   end
   
+  def confirmation_post
+    if params[:commit] == "Back to the Home Page"
+      redirect_to root_path
+    end
+  end
+
 end

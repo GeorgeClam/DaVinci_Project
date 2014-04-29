@@ -1,4 +1,5 @@
 DavinciProject::Application.routes.draw do
+
   get  "/"                              => "main#root_get",                   as: "root"
   post "/"                              => "main#root_post",                  as: "root_post"
 
@@ -38,4 +39,5 @@ DavinciProject::Application.routes.draw do
 
   get  "/faqs"                          => "main#faqs_get",                   as: "faqs"
   post "/faqs"                          => "main#faqs_post",                  as: "faqs_post"
+
 end

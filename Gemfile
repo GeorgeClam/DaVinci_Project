@@ -40,6 +40,8 @@ gem 'pony'
 
 gem 'will_paginate'
 
+gem 'paypal-sdk-rest'
+
 gem 'rails-footnotes', github: 'rrooding/rails-footnotes',
   ref: '0b6bc7'
 
