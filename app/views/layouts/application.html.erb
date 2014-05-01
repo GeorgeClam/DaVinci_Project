@@ -42,9 +42,9 @@
               </a>
             </li>
             <li>
-               <a href="/graphic_art">
+              <a href="/graphic_art">
                 Graphic Art
-               </a>
+              </a>
             </li>
             <li>
               <a href="/miscellaneous">
@@ -56,59 +56,54 @@
               	Sign up
               </a>
             </li>
-            <li>
+            <!--li>
               <a href="/shopping_cart">
                 <span class="glyphicon glyphicon-shopping-cart" %></span>
               </a>
-            </li> 
+            </li--> 
           </ul>
 
             <% if session[:user_id] == nil %>
-              
-                  <p class="login">
-                    <%= text_field_tag :email, nil, placeholder: "Email Address", size: 15 %>
-                    <%= password_field_tag :password, nil, placeholder: "Password", size: 15 %>
-                    <%= submit_tag "Sign in" %>
-                  </p>
+
+              <p class="login">
+                <%= text_field_tag :email, nil, placeholder: "Email Address", size: 15 %>
+                <%= password_field_tag :password, nil, placeholder: "Password", size: 15 %>
+                <%= submit_tag "Sign in" %>
+              </p>
 
             <% elsif session[:user_id] != nil %>
 
-                  <p class="login">
-                    Greetings, <%= User.find(session[:user_id]).first_name %>! <%= submit_tag "Sign out" %>
-                  </p>
-                
+              <p class="login">
+                Greetings, <%= User.find(session[:user_id]).first_name %>! <%= submit_tag "Sign out" %>
+              </p>        
+              
             <% end %>              
 
         </div>
       </div>
     </div>
-
   </head>
 
   <body>
 
-  <% if flash.now[:error] != nil %>
+    <% if flash.now[:error] != nil %>
+      <div class="alert alert-danger">
+        <b><%= flash[:error] %></b>
+      </div>
+    <% end %>
 
-    <div class="alert alert-danger">
-      <b><%= flash[:error] %></b>
-    </div>
-
-  <% end %>
-
-  <% if flash[:success] != nil %>
-
-    <div class="alert alert-success">
-      <b><%= flash[:success] %></b>
-    </div>
-
-  <% end %>
+    <% if flash[:success] != nil %>
+      <div class="alert alert-success">
+        <b><%= flash[:success] %></b>
+      </div>
+    <% end %>
   
     <%= yield %>
 
-  <hr>
-  <p class="footer">
-    All work is copywritten and the rights to the works belong solely to the artist which created the respected piece. Please don't be a jerk and take advantage of good people that put in serious efforts to make the world a more beautiful place to live. George Clam coded this for your viewing pleasure. Contribute to culture, because we have enough Starbucks locations. 
-  </p><br><br>
+    <hr>
+    <p class="footer">
+      All work is copywritten and the rights to the works belong solely to the artist which created the respected piece. Please don't be a jerk and take advantage of good people that put in serious efforts to make the world a more beautiful place to live. George Clam coded this for your viewing pleasure. Contribute to culture, because we have enough Starbucks locations. 
+    </p><br><br>
   
   </body>
 </html>

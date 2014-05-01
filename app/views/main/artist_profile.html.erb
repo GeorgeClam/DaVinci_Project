@@ -1,54 +1,51 @@
-<%= form_tag "artists/:name" do %>
-
-  <h1 class="header"><%= @artist_info.name %></h1>
+<h1 class="header"><%= @artist_info.name %></h1>
   
-  <div class="header_three">
+<div class="header_three">
+  <% if @artist_info.website_url != nil %>
+    <a href="http://www.<%= @artist_info.website_url %>">
+      Website
+    </a><br>
+	<% end %>
 
-    <% if @artist_info.website_url != nil %>
-	    <a href="http://www.<%= @artist_info.website_url %>">
-        Website
-      </a><br>
-	  <% end %>
-
-    <% if @artist_info.facebook_url != nil %>
-      <a href="http://www.<%= @artist_info.facebook_url %>">
-        Facebook
-      </a><br>
-    <% end %>
-  
-    <% if @artist_info.twitter_url != nil %>
-	    <a href="http://www.<%= @artist_info.twitter_url %>">
-        Twitter
-      </a><br>	
-    <% end %>
-  
-    <% if @artist_info.instagram_url != nil %>
-      <a href="http://www.<%= @artist_info.website_url %>">
-        Instagram
-      </a><br>
-    <% end %>
-
-    <% if @artist_info.tumblr_url != nil %>
-      <a href="http://www.<%= @artist_info.website_url %>">
-        Tumblr
-      </a><br>
-    <% end %>
-
-  </div> 
-
-
-  <% @work.each do |work| %>
-
-    <p style="text-align:center; color:#696969; font-family: Impact; font-size: 20px; margin: 10px 10px 10px 10px">
-      <em><%= work.title %></em>  from <%= work.artist.name %>
-    </p> 
-
-    <p style="text-align:center">
-      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
-    </p>
-  
+  <% if @artist_info.facebook_url != nil %>
+    <a href="http://www.<%= @artist_info.facebook_url %>">
+      Facebook
+    </a><br>
   <% end %>
+  
+  <% if @artist_info.twitter_url != nil %>
+	  <a href="http://www.<%= @artist_info.twitter_url %>">
+      Twitter
+    </a><br>	
+  <% end %>
+</div> 
 
+<% @work.each do |work| %>
+
+  <p class="work">
+    "<%= work.title %>" from <%= work.artist.name %>
+  </p> 
+
+  <p style="text-align:center">
+    <!--a href="<%= work_showcase_path(@work) %>"-->
+      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+    <!--/a-->
+  </p>
+
+<% if work.availability == true %>
+
+    <p class="index_text3">
+      $75.00 + shipping
+    </p>
+
+    <form style="text-align:center" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">    
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
+  <% end %>
 <% end %>
 
 <div class="apple_pagination">

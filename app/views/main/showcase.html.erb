@@ -4,8 +4,12 @@
 
 <p style="text-align:center">
 
-  <% if @work.availability == true %>
+<% @work do |work| %>
+
+  <% if work.availability == true %>
       <%= submit_tag "Add to your shopping cart" %>
   <% end %>
+
+<% end %>
 
 </p>

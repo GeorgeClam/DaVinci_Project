@@ -38,7 +38,7 @@ class MainController < ApplicationController
 
   def showcase_get
     id = params[:id]
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: id)
   	render :showcase and return
   end
 
@@ -56,6 +56,7 @@ class MainController < ApplicationController
     @user.first_name               = params["first_name"]
     @user.last_name                = params["last_name"]
     @user.email                    = params["email"]
+    @user.state_id                 = params["state_id"]
     @user.password                 = params["password"]
     @user.password_confirmation    = params["password_confirmation"]
     @user.email_verification_token = rand(10 ** 8)
@@ -145,7 +146,11 @@ class MainController < ApplicationController
   end
 
   def order_details_post
+    id = params[:id]
+    @user = User.find(id)
+    @user.state_id = params[:state_id]
     if params[:commit] == "Confirm Order"
+      @user.save!
       redirect_to confirmation_path
     end
   end

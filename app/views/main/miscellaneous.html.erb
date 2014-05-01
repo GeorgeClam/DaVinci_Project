@@ -5,15 +5,13 @@
 <div class="row">
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>“I want to make beautiful things, even if nobody cares, as opposed to ugly things. That’s my intent.”</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <br><strong>-Saul Bass</strong>
       </p>
-
     </blockquote>  
   </div>
 
@@ -22,17 +20,15 @@
       <p class="index_text">
         <em>“But I find that for myself, without exception, the more I deal with the work as something that is my own, as something that is personal, the more successful it is.”</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <strong>-Marian Bantjes</strong>
       </p>
-
     </blockquote>
   </div>
   
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>“Never fall in love with an idea. They’re whores. If the one you’re with isn’t doing the job, there’s always, always, always another.”</em>
       </p>
@@ -40,7 +36,6 @@
       <p class="index_text2">
         <strong>-Chip Kidd</strong>
       </p>
-
     </blockquote>
   </div>
 </div>
@@ -52,8 +47,11 @@
   </p> 
 
   <p style="text-align:center">
-    <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
+    <!--a href="<%= work_showcase_path(@work) %>"-->
+      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+      <!--/a-->
   </p>
+  
   <p>
     <% if work.availability == true %>
       <%= submit_tag "Add to your shopping cart" %>
@@ -65,4 +63,3 @@
 <div class="apple_pagination">
   <%= will_paginate @work %>
 </div>
-

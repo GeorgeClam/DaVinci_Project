@@ -1,52 +1,43 @@
 <h1 class="header">Canvas & Brush</h1>
-
 <hr>
 
 <div class="row">
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>"It took me four years to paint like Raphael, but a lifetime to paint like a child."</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <br><br><br><strong>-Pablo Picasso</strong>
       </p>
-
     </blockquote>
   </div>
 
   <div class="col-md-4">
     <blockquote>
-
       <p class="index_text">
         <em>"Writing is a form of therapy; sometimes I wonder how all those who do not write, compose or paint can manage to escape the madness, melancholia, the panic and fear which is inherent in a human situation."</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <strong>-Graham Greene</strong>
       </p>
-
     </blockquote>
   </div>
 
   <div class="col-md-4">
     <blockquote>  
-
       <p class="index_text">
         <em>"One can't paint New York as it is, but rather as it is felt."</em>
       </p>
-        <br>
+      <br>
       <p class="index_text2">
         <br><br><br><strong>-Georgia O'Keeffe</strong>
       </p>
-
     </blockquote>
   </div>
-</div>
-
-<br>
+</div><br>
 
 <% @work.each do |work| %>
 
@@ -55,8 +46,11 @@
   </p> 
 
   <p style="text-align:center">
-    <a href="<%= work_showcase_path(@work) %>"><img src="/assets/<%= work.work_filename %>" style="border:2px ridge black"></a>
+    <!--a href="<%= work_showcase_path(@work) %>"-->
+      <img src="/assets/<%= work.work_filename %>" style="border:2px ridge black">
+    <!--/a-->
   </p>
+
   <p>
     <% if work.availability == true %>
       <%= submit_tag "Add to your shopping cart" %>

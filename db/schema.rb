@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423213044) do
+ActiveRecord::Schema.define(version: 20140501191533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,13 @@ ActiveRecord::Schema.define(version: 20140423213044) do
     t.string   "website_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
-    t.string   "instagram_url"
-    t.string   "tumblr_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140423213044) do
     t.string   "password_digest"
     t.boolean  "was_email_verified"
     t.string   "email_verification_token"
+    t.integer  "state_id"
   end
 
   create_table "works", force: true do |t|
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140423213044) do
     t.datetime "updated_at"
     t.string   "genre"
     t.string   "work_filename"
+    t.string   "price"
   end
 
 end
