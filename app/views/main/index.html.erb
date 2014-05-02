@@ -1,26 +1,26 @@
-<%= form_tag "/", method: :post do %>
+<%#= form_tag "/", method: :post do %>
 
-  <% if session[:user_id] == nil %>
+  <%# if session[:user_id] == nil %>
 
-    <div class="login">
+    <!--div class="login">
       <p>
-        <%= text_field_tag :email, nil, placeholder: "E-Mail Address", size: 20 %>
-        <%= password_field_tag :password, nil, placeholder: "Password", size: 20 %>
-        <%= submit_tag "Sign in" %>
+        <%#= text_field_tag :email, nil, placeholder: "E-Mail Address", size: 20 %>
+        <%#= password_field_tag :password, nil, placeholder: "Password", size: 20 %>
+        <%#= submit_tag "Sign in" %>
       </p>
     </div>
 
-  <% elsif session[:user_id] != nil %>
+  <%# elsif session[:user_id] != nil %>
 
     <div class="login">
       <p>
-        Greetings, <%= User.find(session[:user_id]).first_name %>! <%= submit_tag "Sign out" %>
+        <strong>Greetings, <%#= User.find(session[:user_id]).first_name %>! <%#= submit_tag "Sign out" %></strong>
       </p>
-    </div>
+    </div-->
 
-  <% end %> 
+  <%# end %> 
 
-<% end %> 
+<%# end %> 
 
 <div class="index_pics">
   <div class="row">

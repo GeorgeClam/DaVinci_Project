@@ -51,17 +51,25 @@
                 Misc
               </a>
             </li>
+
+            <% if session[:user_id] == nil %>
+
             <li>
               <a href="/registration">
               	Sign up
               </a>
             </li>
+
+            <% end %>
+
             <!--li>
               <a href="/shopping_cart">
                 <span class="glyphicon glyphicon-shopping-cart" %></span>
               </a>
-            </li--> 
+            </li-->
           </ul>
+
+            <%= form_tag "/", method: :post do %>
 
             <% if session[:user_id] == nil %>
 
@@ -82,6 +90,9 @@
         </div>
       </div>
     </div>
+
+    <% end %>
+    
   </head>
 
   <body>
@@ -102,8 +113,8 @@
 
     <hr>
     <p class="footer">
-      All work is copywritten and the rights to the works belong solely to the artist which created the respected piece. Please don't be a jerk and take advantage of good people that put in serious efforts to make the world a more beautiful place to live. George Clam coded this for your viewing pleasure. Contribute to culture, because we have enough Starbucks locations. 
-    </p><br><br>
+      All work is copywritten and the rights to the works belong solely to the artist which created the respected piece. Please don't be a jerk and take advantage of good people that put in serious efforts to make the world a more beautiful place to live. George coded this for your viewing pleasure. Contribute to culture, because we have enough Starbucks locations. 
+    </p><br>
   
   </body>
 </html>
