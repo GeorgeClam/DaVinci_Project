@@ -48,6 +48,7 @@ class MainController < ApplicationController
   end
 
   def registration_get
+    @user = User.new
     render :registration and return  
   end
 
