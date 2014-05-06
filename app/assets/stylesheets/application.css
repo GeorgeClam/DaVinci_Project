@@ -39,6 +39,10 @@ body {
 	font-size: 13pt;
 }
 
+.showcase {
+  border: 2px black ridge
+}
+
 .work {
   text-align:center; 
   color: black; 
