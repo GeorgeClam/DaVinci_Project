@@ -70,7 +70,7 @@ Work.create! \
   availability: true,
   genre: "drawing",
   work_filename: "zack_low_works/handy_with_tools.jpg",
-  price: 75.00
+  price: nil
 
 Work.create! \
   title: "Colors",
@@ -224,93 +224,6 @@ Work.create! \
   work_filename: "joshua_guisinger_works/untitled2.jpg",
   price: nil
 
-Work.create! \
-  title: "Alien",
-  artist_id: 5,
-  availability: false,
-  genre: "graphic_art",
-  work_filename: "ken_kokoszka_works/alien.jpg",
-  price: nil
-
-Work.create! \
-  title: "Camel",
-  artist_id: 5,
-  availability: false,
-  genre: "drawing",
-  work_filename: "ken_kokoszka_works/camel.jpg",
-  price: nil
-
-Work.create! \
-  title: "Choice Encounter",
-  artist_id: 5,
-  availability: false,
-  genre: "graphic_art",
-  work_filename: "ken_kokoszka_works/choice_encounter.jpg",
-  price: nil
-
-Work.create! \
-  title: "Goblin",
-  artist_id: 5,
-  availability: false,
-  genre: "graphic_art",
-  work_filename: "ken_kokoszka_works/goblin.jpg",
-  price: nil
-
-Work.create! \
-  title: "Lion",
-  artist_id: 5,
-  availability: false,
-  genre: "drawing",
-  work_filename: "ken_kokoszka_works/lion.jpg",
-  price: nil
-
-Work.create! \
-  title: "Phobia",
-  artist_id: 5,
-  availability: false,
-  genre: "drawing",
-  work_filename: "ken_kokoszka_works/phobia.jpg",
-  price: nil
-
-Work.create! \
-  title: "Redcap",
-  artist_id: 5,
-  availability: false,
-  genre: "graphic_art",
-  work_filename: "ken_kokoszka_works/redcap.jpg",
-  price: nil
-
-Work.create! \
-  title: "Scorpion",
-  artist_id: 5,
-  availability: false,
-  genre: "drawing",
-  work_filename: "ken_kokoszka_works/scorpion.jpg",
-  price: nil
-
-Work.create! \
-  title: "Gold Bracelet",
-  artist_id: 6,
-  availability: false,
-  genre: "misc",
-  work_filename: "alexandra_kinney_works/gold_bracelet.jpg",
-  price: nil
-
-Work.create! \
-  title: "Spike Necklace",
-  artist_id: 6,
-  availability: false,
-  genre: "misc",
-  work_filename: "alexandra_kinney_works/spike_necklace.jpg",
-  price: nil 
-
-Work.create! \
-  title: "Vintage-Inspired Necklace",
-  artist_id: 6,
-  availability: false,
-  genre: "misc",
-  work_filename: "alexandra_kinney_works/vintage_inspired_necklace.jpg",
-  price: nil 
 
 State.create! name: "Alabama", abbreviation: "AL"
 State.create! name: "Alaska", abbreviation: "AK"
